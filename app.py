@@ -1,6 +1,7 @@
 import pickle
 import streamlit as st 
 import requests
+import os
 
 
 def fetch_poster(movie_id):
@@ -25,9 +26,9 @@ def recommend(movie):
     return recommend_movies_name, recommend_movies_poster 
 
 st.header("Movie Recommendation System Using Machine Learning")
-with open('./artifacts/movies_list.pkl', 'rb') as file:
+with open(os.path.join(os.getcwd(), "artifacts", "movies_list.pkl"), 'rb') as file:
     movies = pickle.load(file)
-similarity = pickle.load(open('./artifacts/similarity.pkl','rb'))
+similarity = pickle.load(open(os.path.join(os.getcwd(), "artifacts", "similarity.pkl"), 'rb'))
 
 
 movie_list = movies['title'].values
