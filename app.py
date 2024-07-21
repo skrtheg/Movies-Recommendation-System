@@ -26,9 +26,9 @@ def recommend(movie):
     return recommend_movies_name, recommend_movies_poster 
 
 st.header("Movie Recommendation System Using Machine Learning")
-with open(os.path.join(os.getcwd(), "artifacts", "movies_list.pkl"), 'rb') as file:
+with open(os.path.join(os.getcwd(), "movies_list.pkl"), 'rb') as file:
     movies = pickle.load(file)
-similarity = pickle.load(open(os.path.join(os.getcwd(), "artifacts", "similarity.pkl"), 'rb'))
+similarity = pickle.load(open(os.path.join(os.getcwd(), "similarity.pkl"), 'rb'))
 
 
 movie_list = movies['title'].values
